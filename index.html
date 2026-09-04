@@ -1,0 +1,1092 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lakshitha Rent a Car</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:#fff;
+    overflow-x:hidden;
+
+    background:
+    radial-gradient(circle at 10% 10%, #164b73 0%, transparent 30%),
+    radial-gradient(circle at 90% 85%, #123d67 0%, transparent 30%),
+    linear-gradient(135deg,#02060d,#071827,#020812);
+}
+
+
+/* =========================
+   BACKGROUND LIGHT
+========================= */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    top:10%;
+    left:-120px;
+
+    border-radius:50%;
+
+    background:#1c9cff;
+
+    filter:blur(110px);
+
+    opacity:.22;
+
+    z-index:-1;
+}
+
+body::after{
+    content:"";
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    right:-120px;
+    bottom:5%;
+
+    border-radius:50%;
+
+    background:#008cff;
+
+    filter:blur(110px);
+
+    opacity:.18;
+
+    z-index:-1;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+header{
+    position:sticky;
+    top:15px;
+
+    z-index:999;
+
+    width:92%;
+    max-width:1150px;
+
+    margin:15px auto;
+
+    padding:16px 24px;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.09);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.30),
+    inset 0 1px rgba(255,255,255,.15);
+}
+
+.logo{
+    font-size:22px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#75ccff;
+}
+
+nav{
+    display:flex;
+
+    align-items:center;
+}
+
+nav a{
+    color:white;
+
+    text-decoration:none;
+
+    margin-left:24px;
+
+    font-size:15px;
+
+    opacity:.8;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#75ccff;
+
+    opacity:1;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:80vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    margin-bottom:22px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
+
+    color:#bde7ff;
+
+    font-size:13px;
+}
+
+
+/* MAIN TITLE */
+
+.hero h1{
+    font-size:clamp(48px,8vw,85px);
+
+    line-height:.95;
+
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:#6dcaff;
+}
+
+.hero p{
+    font-size:18px;
+
+    line-height:1.7;
+
+    color:#c2d0dd;
+}
+
+.hero-buttons{
+    margin-top:32px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+    display:inline-block;
+
+    padding:14px 27px;
+
+    margin:6px;
+
+    border-radius:30px;
+
+    color:white;
+
+    text-decoration:none;
+
+    background:rgba(255,255,255,.10);
+
+    border:1px solid rgba(255,255,255,.22);
+
+    backdrop-filter:blur(15px);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.18);
+}
+
+.primary{
+    background:#fff;
+
+    color:#06101b;
+
+    font-weight:bold;
+}
+
+.primary:hover{
+    background:#e8f7ff;
+
+    color:#06101b;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    width:92%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:75px 0;
+}
+
+.section-title{
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:40px;
+
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#aebdca;
+}
+
+
+/* =========================
+   GLASS
+========================= */
+
+.glass{
+    background:rgba(255,255,255,.075);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
+
+    box-shadow:
+
+    0 20px 60px rgba(0,0,0,.30),
+
+    inset 0 1px rgba(255,255,255,.12);
+}
+
+
+/* =========================
+   CAR
+========================= */
+
+.car-card{
+    padding:20px;
+
+    overflow:hidden;
+}
+
+.car-image{
+    width:100%;
+
+    height:520px;
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:24px;
+}
+
+.car-info{
+    padding:28px 10px 12px;
+}
+
+.car-info h3{
+    font-size:32px;
+
+    margin-bottom:10px;
+}
+
+.car-info p{
+    color:#b9c8d5;
+
+    font-size:16px;
+}
+
+.car-details{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin:23px 0;
+}
+
+.detail{
+    padding:11px 16px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.07);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#dce8f2;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   BOOKING
+========================= */
+
+.booking-card{
+    padding:38px;
+}
+
+form{
+    display:grid;
+
+    gap:18px;
+}
+
+label{
+    display:block;
+
+    color:#cbd8e4;
+
+    font-size:14px;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    padding:16px;
+
+    margin-top:8px;
+
+    border-radius:17px;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    outline:none;
+
+    color:white;
+
+    background:rgba(255,255,255,.08);
+
+    font-size:15px;
+
+    backdrop-filter:blur(10px);
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#67caff;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#9eafbd;
+}
+
+select option{
+    color:#111;
+
+    background:white;
+}
+
+textarea{
+    height:110px;
+
+    resize:none;
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.submit{
+    width:100%;
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    color:#06101b;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.submit:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 35px rgba(255,255,255,.16);
+}
+
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.whatsapp-btn{
+    display:block;
+
+    width:100%;
+
+    padding:17px;
+
+    margin-top:12px;
+
+    border-radius:18px;
+
+    background:#25D366;
+
+    color:white;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+.whatsapp-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 35px rgba(37,211,102,.30);
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-card{
+    padding:42px;
+
+    text-align:center;
+}
+
+.contact-card h2{
+    font-size:32px;
+
+    margin-bottom:14px;
+}
+
+.contact-card p{
+    color:#bdcad5;
+
+    margin:10px;
+}
+
+.phone{
+    font-size:28px !important;
+
+    font-weight:bold;
+
+    color:#72ccff !important;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:35px 20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#8293a3;
+}
+
+footer small{
+    display:block;
+
+    margin-top:8px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    header{
+        width:94%;
+
+        padding:15px;
+    }
+
+    .logo{
+        font-size:17px;
+    }
+
+    nav a{
+        margin-left:9px;
+
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:70vh;
+
+        padding:60px 15px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .car-image{
+        height:300px;
+    }
+
+    .booking-card{
+        padding:22px;
+    }
+
+    .contact-card{
+        padding:28px 18px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media(max-width:420px){
+
+    nav a{
+        margin-left:5px;
+
+        font-size:10px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .car-image{
+        height:250px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+    <div class="logo">
+        🚘 <span>Lakshitha</span>
+        Rent a Car
+    </div>
+
+    <nav>
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#car">
+            Car
+        </a>
+
+        <a href="#booking">
+            Booking
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ Welcome to Lakshitha Rent a Car
+        </div>
+
+
+        <h1>
+            <span>Lakshitha</span>
+            Rent a Car
+        </h1>
+
+
+        <p>
+            Comfortable, reliable and affordable
+            car rental for your next journey.
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#booking"
+                class="btn primary"
+            >
+                🚗 Book Now
+            </a>
+
+
+            <a
+                href="#car"
+                class="btn"
+            >
+                View Car →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAR SECTION
+========================= -->
+
+<section id="car">
+
+    <div class="section-title">
+
+        <h2>
+            Our Car
+        </h2>
+
+        <p>
+            Available for your next journey
+        </p>
+
+    </div>
+
+
+    <div class="glass car-card">
+
+
+        <img
+            src="wagon-r.jpg"
+            alt="Suzuki Wagon R"
+            class="car-image"
+        >
+
+
+        <div class="car-info">
+
+            <h3>
+                🚗 Suzuki Wagon R
+            </h3>
+
+
+            <p>
+                Comfortable • Reliable • Fuel Efficient
+            </p>
+
+
+            <div class="car-details">
+
+                <div class="detail">
+                    👥 4 Seats
+                </div>
+
+                <div class="detail">
+                    ⚙️ Automatic
+                </div>
+
+                <div class="detail">
+                    ❄️ Air Conditioning
+                </div>
+
+                <div class="detail">
+                    ⛽ Fuel Efficient
+                </div>
+
+            </div>
+
+
+            <a
+                href="#booking"
+                class="btn primary"
+            >
+                Book This Car →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BOOKING SECTION
+========================= -->
+
+<section id="booking">
+
+
+    <div class="section-title">
+
+        <h2>
+            Book Your Car
+        </h2>
+
+        <p>
+            Send us your booking request
+        </p>
+
+    </div>
+
+
+    <div class="glass booking-card">
+
+
+        <!-- EMAIL BOOKING FORM -->
+
+        <form
+            action="https://formsubmit.co/amiljayasinghe24@gmail.com"
+            method="POST"
+        >
+
+
+            <!-- EMAIL SETTINGS -->
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="🚗 New Lakshitha Rent a Car Booking"
+            >
+
+
+            <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+            >
+
+
+            <!-- SECOND EMAIL -->
+
+            <input
+                type="hidden"
+                name="_cc"
+                value="thimeeshashevon@gmail.com"
+            >
+
+
+            <!-- NAME -->
+
+            <label>
+
+                Your Name
+
+                <input
+                    type="text"
+                    name="Customer Name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </label>
+
+
+            <!-- PHONE -->
+
+            <label>
+
+                Phone Number
+
+                <input
+                    type="tel"
+                    name="Customer Phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
+
+            </label>
+
+
+            <!-- CAR -->
+
+            <label>
+
+                Select Car
+
+                <select
+                    name="Car"
+                    required
+                >
+
+                    <option value="">
+                        Select a car
+                    </option>
+
+                    <option value="Suzuki Wagon R">
+                        Suzuki Wagon R
+                    </option>
+
+                </select>
+
+            </label>
+
+
+            <!-- PICKUP DATE -->
+
+            <label>
+
+                Pick-up Date
+
+                <input
+                    type="date"
+                    name="Pick-up Date"
+                    required
+                >
+
+            </label>
+
+
+            <!-- RETURN DATE -->
+
+            <label>
+
+                Return Date
+
+                <input
+                    type="date"
+                    name="Return Date"
+                    required
+                >
+
+            </label>
+
+
+            <!-- MESSAGE -->
+
+            <label>
+
+                Additional Message
+
+                <textarea
+                    name="Message"
+                    placeholder="Any additional requirements?"
+                ></textarea>
+
+            </label>
+
+
+            <!-- EMAIL SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit"
+            >
+                ✅ Send Booking Request
+            </button>
+
+        </form>
+
+
+        <!-- WHATSAPP BOOKING -->
+
+        <a
+            href="https://wa.me/94701665585?text=Hello%20Lakshitha%20Rent%20a%20Car%2C%20I%20would%20like%20to%20book%20a%20car."
+            target="_blank"
+            class="whatsapp-btn"
+        >
+            💬 Book via WhatsApp
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+
+    <div class="glass contact-card">
+
+
+        <h2>
+            📞 Contact Us
+        </h2>
+
+
+        <p>
+            Call us directly for quick bookings.
+        </p>
+
+
+        <p class="phone">
+            70 166 5585
+        </p>
+
+
+        <a
+            href="tel:701665585"
+            class="btn primary"
+        >
+            📞 Call Now
+        </a>
+
+
+        <p>
+            📧 amiljayasinghe24@gmail.com
+        </p>
+
+
+        <p>
+            📧 thimeeshashevon@gmail.com
+        </p>
+
+
+        <!-- CONTACT WHATSAPP -->
+
+        <a
+            href="https://wa.me/94701665585?text=Hello%20Lakshitha%20Rent%20a%20Car"
+            target="_blank"
+            class="whatsapp-btn"
+        >
+            💬 WhatsApp Us
+        </a>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    © 2026 Lakshitha Rent a Car
+
+    <small>
+        Drive Safe • Travel Happy 🚘
+    </small>
+
+</footer>
+
+
+</body>
+</html>
+```
